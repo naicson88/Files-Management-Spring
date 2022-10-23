@@ -49,4 +49,21 @@ public class AtributoServiceImpl {
 		return atributos;
 		
 	}
+	
+	@Transactional(rollbackFor = {Exception.class, RuntimeException.class})
+	public List<Atributo> importCSVOfAtributo(MultipartFile mp){
+		ImportCSVOfAtributo imp = new ImportCSVOfAtributo();
+		
+		List<Atributo> atributos = new ArrayList<>();
+		
+		for(Atributo att : imp.importCSVOfAtributo(mp)) {
+			atributoRepository.saveNewAtributo(att.getId(), att.getName(), att.getAtributoImgPath());
+			atributos.add(att);
+		}
+	
+		return atributos;
+		
+	}
+	
+	
 }

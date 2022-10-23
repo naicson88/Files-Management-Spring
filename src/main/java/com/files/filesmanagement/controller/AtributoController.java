@@ -62,6 +62,13 @@ public class AtributoController {
 		return new ResponseEntity<List<Atributo>>(atributos, HttpStatus.OK);
 	}
 	
+	@PostMapping("/upload-csv-file")
+	public ResponseEntity<List<Atributo>> importCSVOfAtributo(@RequestParam("file") MultipartFile file){
+		List<Atributo> atributos = atributoService.importCSVOfAtributo(file);
+		
+		return new ResponseEntity<List<Atributo>>(atributos, HttpStatus.OK);
+	}
+	
 	 @ExceptionHandler(MaxUploadSizeExceededException.class)
 	  public ResponseEntity<String> handleMaxSizeException(MaxUploadSizeExceededException exc) {
 	    return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("File too large!");
