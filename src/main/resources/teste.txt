@@ -1,0 +1,5 @@
+for GraphQL, are you also covering how to validate the data access control from security point of view?
+
+When I had realized that being a manager wasn't a good fit for me, I resigned from that role and became a staff engineer instead
+
+Curso Completo de Desenvolvimento de Aplicativos -> Confira em
